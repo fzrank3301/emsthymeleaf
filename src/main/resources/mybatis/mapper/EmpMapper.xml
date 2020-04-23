@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.ems_thymeleaf.dao.EmpMapper">
+
+    <insert id="Save" parameterType="com.example.ems_thymeleaf.entity.EmpEnity">
+        insert into t_emp(id, name, salary, age, bir) VALUE (#{id},#{name},#{salary},#{age},#{bir})
+    </insert>
+
+    <update id="update" parameterType="com.example.ems_thymeleaf.entity.EmpEnity">
+        update t_emp set name=#{name}, salary = #{salary}, age=#{age},bir=#{bir}
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="String">
+        delete from t_emp where id=#{id}
+    </delete>
+
+    <select id="findAll" resultType="com.example.ems_thymeleaf.entity.EmpEnity">
+        select * from t_emp
+    </select>
+
+    <select id="find" resultType="com.example.ems_thymeleaf.entity.EmpEnity" parameterType="String">
+        select id,name,salary,age,bir from t_emp
+        where id = #{id}
+    </select>
+
+
+</mapper>
